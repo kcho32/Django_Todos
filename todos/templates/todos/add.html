@@ -1,8 +1,12 @@
-<form action="{% url 'todos:add_2' %}" method="post"> 
+{% extends 'base.html' %}
+{% block title %} 일정 등록 {% endblock %}
+
+{% block content %} 
+<form action="{% url 'todos:submit_add' %}" method="post"> 
   {% csrf_token %}
   <fieldset>
     <h1>
-      {{whatto_list}}를 시작합니다.
+      일정 등록
     </h1>
     <p>
       Title:
@@ -10,13 +14,14 @@
       </p>
     <p>
       Content:
-      <input type='text' name='content' value=''>
+      <input type='text' name='contents' value=''>
       </p>
     <p>
       Due date:
-      <input type='datetime-local' name='due_date' >
+      <input type='datetime-local' name='due' >
     </p>
     <p>
       <input type="submit" value="완료">
     </p>
   </fieldset>
+  {% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} 메인 화면 {% endblock %}
+
+{% block content %}
+<fieldset>
+    <h1>
+        무엇을 하시겠습니까?.
+    </h1>
+    
+        <ul>
+            {% for object in object_list %}  
+                <p><a href="{{object.action}}"><li>{{ object.name }}</li></a></p>
+            {% endfor %}
+        </ul>
+</fieldset>
+ {% endblock %}
+ 
+ 
+ 
+ 
+ <!--{% with "todos:"|add:model.action|lower as urlvar %}-->
+<!--<a href = "{% url urlvar %}"></a> --> <!--{% endwith %}-->

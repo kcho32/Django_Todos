@@ -1,14 +1,20 @@
-<form action="{% url 'todos:delete_2' %}" method="post"> 
+{% extends 'base.html' %}
+{% block title %} 일정 삭제 {% endblock %}
+
+{% block content %}
+<form action="{% url 'todos:submit_delete' %}" method="post"> 
   {% csrf_token %}
     <fieldset>
       <h1>
         어떤 일정을 삭제하시겠습니까?
       </h1>
-        {% for todo in todo_list %}
-            <p><li>Title:{{ todo.title }}
-              <input type = 'radio' name='data_delete' value= {{todo.id}} unchecked>
+        {% for object in object_list %}
+            <p><li>Title:{{ object.title }}
+              <input type = 'radio' name='data_delete' value= {{object.id}} unchecked>
             </li></p></a>          
         {% endfor %}
         
       <p><input type = 'submit' value="삭제"></p>
-    </fieldset>
+    </fieldset> 
+</form>
+    {% endblock %}

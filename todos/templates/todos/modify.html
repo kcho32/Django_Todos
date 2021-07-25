@@ -1,14 +1,20 @@
-<form action="{% url 'todos:modify_2' %}"  method="post"> 
+{% extends 'base.html' %}
+{% block title %} 수정 목록 {% endblock %}
+{% block content %}
+
+<form id="modifyForm" action='{% url "todos:modify_1" %}'  method="post"> 
   {% csrf_token %}
     <fieldset>
       <h1>
         어떤 일정을 수정하시겠습니까?
       </h1>
-        {% for todo in todo_list %}
-            <p><li>Title:{{ todo.title }}
-              <input type = 'radio' name='data_modify' value= {{todo.id}} unchecked>
-            </li></p></a>          
+        {% for object in object_list %}
+            <p><li>Title:{{ object }}
+              <input type = 'radio' name='modify_id' value= {{object.id}} unchecked>
+            </li></p> 
         {% endfor %}
               
       <p><input type = 'submit' value="수정"></p>
     </fieldset>
+</form>
+    {% endblock %}

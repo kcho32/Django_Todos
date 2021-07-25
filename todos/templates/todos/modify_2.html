@@ -1,4 +1,8 @@
-<form action="{% url 'todos:modify_3'  %}" method="post"> 
+{% extends 'base.html' %}
+{% block title %} 수정 {% endblock %}
+{% block content %}
+
+<form action="{% url 'todos:modify_2' %}" method="post"> 
   {% csrf_token %}
   <fieldset>
     <h1>
@@ -15,10 +19,11 @@
       </p>
     <p>
       Due date:
-      <input type='datetime-local' name='due_date' >
+      <input type='datetime-local' name='due' >
     </p>
-    <input type = 'hidden' name='modify_id' value = {{modify_todo.id}}>
+    <input type = 'hidden' name='modify_id' value = {{object.id}}>
     <p>
       <input type="submit" value="완료">
     </p>
   </fieldset>
+  {% endblock %}

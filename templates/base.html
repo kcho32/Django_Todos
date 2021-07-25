@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Django Todos</title>
+  </head>
+  <br>
+  <body>
+    <div id="sidebar">
+      {% block sidebar %}
+      <ul>
+        <li><a href="/admin/">관리자 페이지</a></li>
+        <li><a href="/todos/">메인 화면</a></li>  
+      </ul>
+      {% endblock %}
+    </div>
+    <div id="content">
+      {% block content %} {% endblock %}
+    </div>
+  </body>
+</html>

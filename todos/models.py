@@ -6,17 +6,18 @@ from django.db import models
 #선택지 number를 받을 예정
 #선택지는 목록보기, 등록, 상세보기, 삭제, 수정
 class TableOfTodo(models.Model):
-    what_to_do = models.CharField(max_length = 200)
+    name = models.CharField(max_length= 200)
+    action = models.CharField(max_length = 50)
     
     def __str__(self):
-        return self.what_to_do
+        return self.action
 
 
 #선택지에 따른 결과값을 전송?
 class Todo(models.Model):
     title = models.CharField(max_length=200)
     contents = models.CharField(max_length=200)
-    todo_date = models.DateTimeField('Due dates')
+    due = models.DateTimeField('Due dates')
 
     def __str__(self):
         return self.title
